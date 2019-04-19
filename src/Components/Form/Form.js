@@ -7,7 +7,7 @@ import React, { Component } from 'react'
 
     this.initialstate = {
       name: '',
-      price: 0,
+      price: '',
       imgurl: '',
     }
     this.state = this.initialstate
@@ -62,10 +62,16 @@ import React, { Component } from 'react'
       <div>
        
         
-      <input placeholder='product name'  onChange={e => this.handleAddProductName(e.target.value)}/> 
+      <input placeholder='product name'  
+      value = {this.state.name}
+      onChange={e => this.handleAddProductName(e.target.value)}/> 
         
-        <input placeholder= 'price' onChange={e => this.productPriceAdd(e.target.value)}/>
-        <input placeholder = 'image url' onChange={e => this.imageAdd(e.target.value)}/>
+        <input placeholder= 'price'
+        value = {this.state.price}
+        onChange={e => this.productPriceAdd(e.target.value)}/>
+        <input placeholder = 'image url'
+        value = {this.state.imgurl}
+        onChange={e => this.imageAdd(e.target.value)}/>
         <button onClick={e => this.resetButton('')}>Cancel</button>         
         <button >Add to Inventory</button>
 

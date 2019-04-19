@@ -12,16 +12,36 @@ class App extends Component {
     super()
 
     this.state ={ 
-    inventory:[]
+    inventory:[{
+      name:'item1',
+      price:12.99,
+      image:'https://http.cat/images/404.jpg'
+
+    },
+    {
+      name:'item2',
+      price:12.933,
+      image:'https://http.cat/images/404.jpg'
+
+    },
+    {
+      name:'item3',
+      price:1,
+      image:'https://http.cat/images/404.jpg'
+
+    }
+  ]
     }
   }
+
+  
 
   
   render() {
 
     return (
       <div className="App">
-        <Dashboard/>
+        <Dashboard productInfo={this.state.inventory}/>
         <Form />
         <Header /> 
 

@@ -4,13 +4,21 @@ import Product from '../Product/Product'
 export default class Dashboard extends Component{
 
 
-render() {
 
+
+
+render() {
+let info = this.props.productInfo.map((Products)=> {
+  return <Product  proInfo = {Products}/> 
+  
+})
+  
 return (
   <div> 
-    Dashboard
-    <Product/> 
+    <h2>{info}</h2>
+   
   </div>
 )
 }
 }
+
