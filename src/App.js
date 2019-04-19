@@ -12,12 +12,23 @@ class App extends Component {
     super()
 
     this.state ={ 
-      inventory:''
+      inventory:[
+        {name:''},
+        {price:''},
+        {url:''}
+      ]
     }
   }
 
-  handleAddProduct(product){
-    this.setState({inventory: [...this.state.inventory, product]})
+  handleAddProductName(productName){
+    this.setState({inventory: [...this.state.inventory, {productName}]})
+  }
+
+  handleAddProductPrice(productPrice){
+    this.setState({inventory: [...this.state.inventory, {productPrice}]})
+  }
+  handleAddProductUrl(productUrl){
+    this.setState({inventory: [...this.state.inventory, {productUrl}]})
   }
   
   render() {
@@ -25,7 +36,11 @@ class App extends Component {
     return (
       <div className="App">
         <Dashboard/>
-        <Form /> 
+        <Form 
+        addProductName={this.handleAddProductName}
+        addProductPrice={this.handleAddProductPrice}
+        addProductUrl={this.handleAddProductUrl}
+        /> 
         <Header /> 
 
 
