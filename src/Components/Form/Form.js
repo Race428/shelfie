@@ -1,36 +1,48 @@
 import React, { Component } from 'react'
 
-export default class Form extends Component {
+ class Form extends Component {
 
   constructor(props) {
     super(props)
 
-    this.state = {
+    this.initialstate = {
       name: '',
       price: 0,
       imgurl: '',
-      product_inventory:[]
     }
+    this.state = this.initialstate
   }
 
 
 
   imageAdd(value) {
-    this.props.addProductUrl(this.state.name)
     this.setState({ imgurl: value })
   }
 
-  productNameAdd(value) {
-    this.props.addProductName(this.state.name)
-    this.setState({ name: value })
-  }
+  // productNameAdd(e) {
+  //   this.props.addProductName(this.state.name)
+  //   this.setState({name: e.target.value})
+    
+  // }
 
+
+  handleAddProductName(productName){
+    this.setState({name: productName})
+  }
   productPriceAdd(value) {
-    this.props.addProductPrice(this.state.price)
     this.setState({ price: value })
   }
 
 
+  resetButton(){
+    this.setState({
+      name:'',
+      price:'',
+      imgurl:''})
+  
+  }
+
+  
 
 
 // addInvetoryFn(e){
@@ -41,17 +53,21 @@ export default class Form extends Component {
 //   this.state.product_inventory.push(inventoryItem)
 // }
 
-  render() {
 
+
+  render() {
+    
     return (
+    
       <div>
-        <input className='imageURL' placeholder='url'></input>
-        <input className='productName' placeholder='product name'></input>
-        <input className='price' placeholder='price' 
-        onChange={(e => this.priceAdd(e.target.value)
-        )}></input>
-        <button className='cancel'>Cancel</button>
-        <button className='add' onClick={e=> this.addInvetoryFn(e.target.value)}>Add To Inventory</button>
+       
+        
+      <input placeholder='product name'  onChange={e => this.handleAddProductName(e.target.value)}/> 
+        
+        <input placeholder= 'price' onChange={e => this.productPriceAdd(e.target.value)}/>
+        <input placeholder = 'image url' onChange={e => this.imageAdd(e.target.value)}/>
+        <button onClick={e => this.resetButton('')}>Cancel</button>         
+        <button >Add to Inventory</button>
 
 
       </div>
@@ -59,3 +75,5 @@ export default class Form extends Component {
   }
   
 }
+
+export default Form 

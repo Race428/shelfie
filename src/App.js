@@ -12,35 +12,17 @@ class App extends Component {
     super()
 
     this.state ={ 
-      inventory:[
-        {name:''},
-        {price:''},
-        {url:''}
-      ]
+    inventory:[]
     }
   }
 
-  handleAddProductName(productName){
-    this.setState({inventory: [...this.state.inventory, {productName}]})
-  }
-
-  handleAddProductPrice(productPrice){
-    this.setState({inventory: [...this.state.inventory, {productPrice}]})
-  }
-  handleAddProductUrl(productUrl){
-    this.setState({inventory: [...this.state.inventory, {productUrl}]})
-  }
   
   render() {
 
     return (
       <div className="App">
         <Dashboard/>
-        <Form 
-        addProductName={this.handleAddProductName}
-        addProductPrice={this.handleAddProductPrice}
-        addProductUrl={this.handleAddProductUrl}
-        /> 
+        <Form />
         <Header /> 
 
 
